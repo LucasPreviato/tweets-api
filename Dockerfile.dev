@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:16.16.0-slim
 
 RUN apt update && apt install -y \ 
     git gpg gnupg gpg-agent socat \ 
@@ -27,7 +27,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -a 'export TERM=xterm-256color' 
 
 RUN echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc && \
-    echo 'HISTFILE=/home/node/zsh/.zsh_history.zsh' >> ~/.zshrc
+    echo 'HISTFILE=/home/node/zsh/.zsh_history' >> ~/.zshrc
 
 CMD [".docker/start.sh"]
 #CMD ["tail", "-f", "/dev/null"]

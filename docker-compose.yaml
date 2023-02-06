@@ -2,32 +2,34 @@ version: '3.9'
 
 services:
   app:
-    container_name: nestTweets
-    build: .
+    container_name: nestTweetsDev
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
       - 3000:3000
     volumes:
       - .:/home/node/app
       - ./.docker/zsh/powerlevel10k/.p10k.zsh:/home/node/.p10k.zsh:delegated
-      - ./.docker/zsh/history:/home/node/.zsh:delegated
+      - ./.docker/zsh/history:/home/node/zsh:delegated
     depends_on:
       - db
   db:
     image: mongo:6.0.2
     profiles:
       - dev
-    container_name: mongoTweets
+    container_name: mongoTweetsDev
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=mongo
-      - MONGO_INITDB_DATABASE=nest-tweets
+      - MONGO_INITDB_DATABASE=nest-tweets-dev
     ports:
       - 27017:27017
     volumes:
       - ./.docker/mongo/data:/data/db
   db_test:
     image: mongo:6.0.2
-    container_name: mongoTweetsTest
+    container_name: mongoTweetsTestDev
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=mongo

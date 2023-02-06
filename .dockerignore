@@ -1,0 +1,11 @@
+.history/
+.docker/zsh
+.docker/mongo/
+.devcontainer/
+.git/
+.vscode/
+.dist/
+node_modules/
+docker-compose.yaml
+Dockerfile.dev
+Dockerfile.prod
