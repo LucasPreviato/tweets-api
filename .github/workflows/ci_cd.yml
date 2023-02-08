@@ -17,9 +17,9 @@ env:
   # Use docker.io for Docker Hub if empty
   #REGISTRY: ghcr.io
   REGISTRY: gcr.io
-  IMAGE_NAME:NestJS-Tweets-API/nest-tweets-api
+  IMAGE_NAME: NestJS-Tweets-API/nest-tweets-api
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
+  #IMAGE_NAME: ${{ github.repository }}
 
 
 jobs:
